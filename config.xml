@@ -5,10 +5,23 @@
        datamodel="jexl"
        initial="hello">
 
-    <final id="hello">
+    <state id="init">    
         <onentry>
-            <log expr="'hello world'" />
+            <log expr="'init hello world'" />
         </onentry>
+           
+        <transition event="battery.update" cond="level lt 70" target="hello">
+            <log expr="'final'" />
+        </transition>
+           
+        <transition event="battery.update" cond="level gt 70" target="init">
+            <log expr="'update init'" />
+        </transition>
+           
+    </state>
+       
+    <final id="hello">
+       
     </final>
 
 </scxml>
