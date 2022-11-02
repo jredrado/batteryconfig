@@ -17,9 +17,8 @@
            
         <transition event="battery.update" cond="_event.data.level gt 70" target="init">
             <log expr="'update init'" />
-            <action:playsound>
-                batteryAlarm.mp3
-            </action:playsound>
+            <action:playsound soundname="batteryAlarm.mp3" />
+            <action:notificationupdate context="_event.data.context" intent="_event.data.intent"/>
         </transition>
            
     </state>
