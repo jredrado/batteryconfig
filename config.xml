@@ -11,7 +11,7 @@
             <log expr="'init hello world'" />
         </onentry>
            
-        <transition event="battery.update" cond="_event.data.level lt 70" target="hello">
+        <transition event="battery.update" cond="_event.data.level lt 70" target="init">
             <log expr="'final'" />
         </transition>
            
