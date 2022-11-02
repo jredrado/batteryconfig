@@ -3,6 +3,7 @@
 <scxml xmlns="http://www.w3.org/2005/07/scxml"
        version="1.0"
        datamodel="jexl"
+       xmlns:action="http://custom.vitio.es"
        initial="init"> 
 
     <state id="init">    
@@ -16,6 +17,9 @@
            
         <transition event="battery.update" cond="_event.data.level gt 70" target="init">
             <log expr="'update init'" />
+               <action:playsound>
+                batteryAlarm.mp3
+              </action:playsound>
         </transition>
            
     </state>
